@@ -14,6 +14,7 @@
 		EF4797D32B6C1A4D0070FA55 /* NotasCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF4797D12B6C1A4D0070FA55 /* NotasCoreData.xcdatamodeld */; };
 		EF4797D52B6C1A4F0070FA55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF4797D42B6C1A4F0070FA55 /* Assets.xcassets */; };
 		EF4797D82B6C1A4F0070FA55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF4797D62B6C1A4F0070FA55 /* LaunchScreen.storyboard */; };
+		EF4797E02B6D3AA90070FA55 /* ListaNotasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4797DF2B6D3AA90070FA55 /* ListaNotasController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		EF4797D42B6C1A4F0070FA55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF4797D72B6C1A4F0070FA55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF4797D92B6C1A4F0070FA55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF4797DF2B6D3AA90070FA55 /* ListaNotasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaNotasController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				EF4797CA2B6C1A4D0070FA55 /* SceneDelegate.swift */,
 				EF4797CC2B6C1A4D0070FA55 /* ViewController.swift */,
 				EF4797CE2B6C1A4D0070FA55 /* Main.storyboard */,
+				EF4797DF2B6D3AA90070FA55 /* ListaNotasController.swift */,
 				EF4797D42B6C1A4F0070FA55 /* Assets.xcassets */,
 				EF4797D62B6C1A4F0070FA55 /* LaunchScreen.storyboard */,
 				EF4797D92B6C1A4F0070FA55 /* Info.plist */,
@@ -143,6 +146,7 @@
 			files = (
 				EF4797CD2B6C1A4D0070FA55 /* ViewController.swift in Sources */,
 				EF4797C92B6C1A4D0070FA55 /* AppDelegate.swift in Sources */,
+				EF4797E02B6D3AA90070FA55 /* ListaNotasController.swift in Sources */,
 				EF4797D32B6C1A4D0070FA55 /* NotasCoreData.xcdatamodeld in Sources */,
 				EF4797CB2B6C1A4D0070FA55 /* SceneDelegate.swift in Sources */,
 			);
