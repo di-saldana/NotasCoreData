@@ -8,8 +8,16 @@
 import UIKit
 import CoreData
 
-class ListaNotasController: UITableViewController {
+class ListaNotasController: UITableViewController, UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let texto = searchController.searchBar.text!
+        print("Buscando \(texto)")
+    }
+    
     var listaNotas : [Nota]!
+    
+    let searchController = UISearchController(searchResultsController: nil)
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +27,17 @@ class ListaNotasController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        self.listaNotas = []
+        //ListaNotasController recibirá lo que se está escribiendo en la barra de búsqueda
+        searchController.searchResultsUpdater = self
+        //Configuramos el search controller
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Buscar texto"
+        //Lo añadimos a la tabla
+        searchController.searchBar.sizeToFit()
+        self.tableView.tableHeaderView = searchController.searchBar
+
     }
 
     // MARK: - Table view data source
