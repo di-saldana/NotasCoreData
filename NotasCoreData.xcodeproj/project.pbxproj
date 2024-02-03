@@ -16,6 +16,7 @@
 		EF4797D82B6C1A4F0070FA55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF4797D62B6C1A4F0070FA55 /* LaunchScreen.storyboard */; };
 		EF4797E02B6D3AA90070FA55 /* ListaNotasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4797DF2B6D3AA90070FA55 /* ListaNotasController.swift */; };
 		EF4797E22B6E690B0070FA55 /* LibretaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4797E12B6E690B0070FA55 /* LibretaViewController.swift */; };
+		EF4797E42B6E70930070FA55 /* GestorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4797E32B6E70930070FA55 /* GestorPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		EF4797D92B6C1A4F0070FA55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF4797DF2B6D3AA90070FA55 /* ListaNotasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaNotasController.swift; sourceTree = "<group>"; };
 		EF4797E12B6E690B0070FA55 /* LibretaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibretaViewController.swift; sourceTree = "<group>"; };
+		EF4797E32B6E70930070FA55 /* GestorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestorPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				EF4797CA2B6C1A4D0070FA55 /* SceneDelegate.swift */,
 				EF4797CC2B6C1A4D0070FA55 /* ViewController.swift */,
 				EF4797CE2B6C1A4D0070FA55 /* Main.storyboard */,
+				EF4797E32B6E70930070FA55 /* GestorPicker.swift */,
 				EF4797E12B6E690B0070FA55 /* LibretaViewController.swift */,
 				EF4797DF2B6D3AA90070FA55 /* ListaNotasController.swift */,
 				EF4797D42B6C1A4F0070FA55 /* Assets.xcassets */,
@@ -147,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF4797E42B6E70930070FA55 /* GestorPicker.swift in Sources */,
 				EF4797E22B6E690B0070FA55 /* LibretaViewController.swift in Sources */,
 				EF4797CD2B6C1A4D0070FA55 /* ViewController.swift in Sources */,
 				EF4797C92B6C1A4D0070FA55 /* AppDelegate.swift in Sources */,

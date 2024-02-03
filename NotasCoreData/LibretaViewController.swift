@@ -8,6 +8,8 @@
 import UIKit
 
 class LibretaViewController: UIViewController {
+    
+    let miGestorPicker = GestorPicker()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +72,7 @@ class LibretaViewController: UIViewController {
             
             let nuevaLibreta = Libreta(context: miContexto)
             nuevaLibreta.nombre = nombre
+            self.miGestorPicker.libretas.append(nuevaLibreta)
             
             do {
                 try miContexto.save()

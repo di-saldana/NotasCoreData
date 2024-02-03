@@ -14,11 +14,22 @@ class ViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var libretaPicker: UIPickerView!
     
+    let miGestorPicker = GestorPicker()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        //Aquí, "picker" es el outlet que representa al "picker view"
+        //CAMBIALO por el nombre que le hayas dado
+        self.libretaPicker.delegate = self.miGestorPicker
+        self.libretaPicker.dataSource = self.miGestorPicker
+        //cargamos las libretas con Core Data
+        self.miGestorPicker.cargarLista()
+        self.libretaPicker.reloadAllComponents()
     }
 
     @IBAction func create(_ sender: UIButton) {
