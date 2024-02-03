@@ -98,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="922.90076335877859" y="-245.07042253521129"/>
+            <point key="canvasLocation" x="2134" y="-587"/>
         </scene>
         <!--Listado de Notas-->
         <scene sceneID="sJW-YY-Frw">
@@ -143,7 +143,36 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hxk-DC-fi4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="924" y="713"/>
+            <point key="canvasLocation" x="2134" y="237"/>
+        </scene>
+        <!--Listado CD-->
+        <scene sceneID="zQl-mM-i5d">
+            <objects>
+                <tableViewController title="Listado CD" id="ZmL-WF-vWK" customClass="ListaNotasCDController" customModule="NotasCoreData" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="eaA-L9-hI4">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="cP9-xr-rDh">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cP9-xr-rDh" id="NyM-gf-E1U">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ZmL-WF-vWK" id="ySh-zH-TEt"/>
+                            <outlet property="delegate" destination="ZmL-WF-vWK" id="9Nh-Gb-WtB"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Listado CD" id="4GP-EH-XTc"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s3y-oe-yzY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2134" y="1084"/>
         </scene>
         <!--Libreta View Controller-->
         <scene sceneID="4AO-th-kVq">
@@ -194,6 +223,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="HVh-pr-KTc"/>
                         <segue destination="0en-eu-t6y" kind="relationship" relationship="viewControllers" id="u2x-vD-bC1"/>
+                        <segue destination="ZmL-WF-vWK" kind="relationship" relationship="viewControllers" id="0ra-cZ-6bx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sfN-2K-ZpO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
