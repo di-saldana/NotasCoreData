@@ -9,11 +9,6 @@ import UIKit
 import CoreData
 
 class ListaNotasController: UITableViewController, UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        let texto = searchController.searchBar.text!
-        print("Buscando \(texto)")
-    }
-    
     var listaNotas : [Nota]!
     
     let searchController = UISearchController(searchResultsController: nil)
@@ -84,6 +79,31 @@ class ListaNotasController: UITableViewController, UISearchResultsUpdating {
         return cell
     }
 
+    func updateSearchResults(for searchController: UISearchController) {
+        let texto = searchController.searchBar.text!
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<Nota> = Nota.fetchRequest()
+        
+        if !texto.isEmpty {
+            fetchRequest.predicate = NSPredicate(format: "texto CONTAINS[cd] %@", texto)
+        }
+        
+        let dateSortDescriptor = NSSortDescriptor(key: "fecha", ascending: false)
+        fetchRequest.sortDescriptors = [dateSortDescriptor]
+        
+        do {
+            listaNotas = try context.fetch(fetchRequest)
+            self.tableView.reloadData()
+        } catch {
+            print("Error al recuperar las notas: \(error)")
+        }
+    }
     
     /*
     // Override to support conditional editing of the table view.
