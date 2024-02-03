@@ -12,7 +12,8 @@ class ListaNotasController: UITableViewController, UISearchResultsUpdating {
     var listaNotas : [Nota]!
     
     let searchController = UISearchController(searchResultsController: nil)
-
+    let throttler = Throttler(minimumDelay: 0.5)
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,28 +81,30 @@ class ListaNotasController: UITableViewController, UISearchResultsUpdating {
     }
 
     func updateSearchResults(for searchController: UISearchController) {
-        let texto = searchController.searchBar.text!
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest: NSFetchRequest<Nota> = Nota.fetchRequest()
-        
-        if !texto.isEmpty {
-            fetchRequest.predicate = NSPredicate(format: "texto CONTAINS[cd] %@", texto)
-        }
-        
-        let dateSortDescriptor = NSSortDescriptor(key: "fecha", ascending: false)
-        fetchRequest.sortDescriptors = [dateSortDescriptor]
-        
-        do {
-            listaNotas = try context.fetch(fetchRequest)
-            self.tableView.reloadData()
-        } catch {
-            print("Error al recuperar las notas: \(error)")
+        throttler.throttle {
+            let texto = searchController.searchBar.text!
+            
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+            }
+            
+            let context = appDelegate.persistentContainer.viewContext
+            
+            let fetchRequest: NSFetchRequest<Nota> = Nota.fetchRequest()
+            
+            if !texto.isEmpty {
+                fetchRequest.predicate = NSPredicate(format: "texto CONTAINS[cd] %@", texto)
+            }
+            
+            let dateSortDescriptor = NSSortDescriptor(key: "fecha", ascending: false)
+            fetchRequest.sortDescriptors = [dateSortDescriptor]
+            
+            do {
+                self.listaNotas = try context.fetch(fetchRequest)
+                self.tableView.reloadData()
+            } catch {
+                print("Error al recuperar las notas: \(error)")
+            }
         }
     }
     
