@@ -95,6 +95,25 @@ class ListaNotasCDController: UITableViewController, NSFetchedResultsControllerD
         }
     }
 
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let notaAEliminar = self.frc.object(at: indexPath)
+            
+            guard let miDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+            }
+            let miContexto = miDelegate.persistentContainer.viewContext
+            
+            miContexto.delete(notaAEliminar)
+            
+            do {
+                try miContexto.save()
+            } catch {
+                print("Error al eliminar la nota: \(error)")
+            }
+        }
+    }
+
     
     /*
     // Override to support conditional editing of the table view.
