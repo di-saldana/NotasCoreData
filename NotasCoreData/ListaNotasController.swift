@@ -19,28 +19,15 @@ class ListaNotasController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        print("hola soy ListaNotasController")
-        
-        let queryLibretas = NSFetchRequest<Libreta>(entityName:"Libreta")
-        guard let miDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        let miContexto = miDelegate.persistentContainer.viewContext
-        let libretas = try! miContexto.fetch(queryLibretas)
-        for libreta in libretas {
-            print(libreta.nombre as Any)
-        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return listaNotas.count
     }
     
@@ -66,13 +53,19 @@ class ListaNotasController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "miCelda", for: indexPath)
 
-        // Configure the cell...
         cell.textLabel?.text = self.listaNotas[indexPath.row].texto
+        
+        if let libreta = self.listaNotas[indexPath.row].libreta {
+            cell.detailTextLabel?.text = "Libreta: \(libreta.nombre ?? "Sin nombre")"
+        } else {
+            cell.detailTextLabel?.text = "Sin libreta"
+        }
+
 
         return cell
     }
-    
 
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -119,3 +112,5 @@ class ListaNotasController: UITableViewController {
     */
 
 }
+
+
