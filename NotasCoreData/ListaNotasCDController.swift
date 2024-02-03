@@ -26,7 +26,7 @@ class ListaNotasCDController: UITableViewController, NSFetchedResultsControllerD
         let consulta = NSFetchRequest<Nota>(entityName: "Nota")
         let sortDescriptors = [NSSortDescriptor(key:"texto", ascending:false)]
         consulta.sortDescriptors = sortDescriptors
-        self.frc = NSFetchedResultsController<Nota>(fetchRequest: consulta, managedObjectContext: miContexto, sectionNameKeyPath: nil, cacheName: "miCache")
+        self.frc = NSFetchedResultsController<Nota>(fetchRequest: consulta, managedObjectContext: miContexto, sectionNameKeyPath: "inicial", cacheName: "miCache")
 
         try! self.frc.performFetch()
         
@@ -113,7 +113,10 @@ class ListaNotasCDController: UITableViewController, NSFetchedResultsControllerD
             }
         }
     }
-
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+            return self.frc.sections?[section].name
+    }
     
     /*
     // Override to support conditional editing of the table view.
