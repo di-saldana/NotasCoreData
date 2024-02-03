@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ListaNotasCDController: UITableViewController {
+class ListaNotasCDController: UITableViewController, NSFetchedResultsControllerDelegate {
     var frc : NSFetchedResultsController<Nota>!
 
     override func viewDidLoad() {
@@ -36,6 +36,8 @@ class ListaNotasCDController: UITableViewController {
                 print (mensaje.texto!)
             }
         }
+        
+        self.frc.delegate = self;
     }
 
     // MARK: - Table view data source
@@ -59,7 +61,41 @@ class ListaNotasCDController: UITableViewController {
         return cell
     }
     
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.beginUpdates()
+    }
 
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.endUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            self.tableView.insertRows(at: [newIndexPath!], with:.automatic )
+        case .update:
+            self.tableView.reloadRows(at: [indexPath!], with: .automatic)
+        case .delete:
+            self.tableView.deleteRows(at: [indexPath!], with: .automatic)
+        case .move:
+            self.tableView.deleteRows(at: [indexPath!], with: .automatic)
+            self.tableView.insertRows(at: [newIndexPath!], with:.automatic )
+        @unknown default:
+            print("Fatal error")
+        }
+    }
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch(type) {
+        case .insert:
+            self.tableView.insertSections(IndexSet(integer:sectionIndex), with: .automatic)
+        case .delete:
+            self.tableView.deleteSections(IndexSet(integer:sectionIndex), with: .automatic)
+        default: break
+        }
+    }
+
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
