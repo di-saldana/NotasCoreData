@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jeK-J8-wrz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3c9-gA-mOG">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
@@ -13,17 +13,17 @@
             <objects>
                 <viewController title="Nueva Nota" id="BYZ-38-t0r" customClass="ViewController" customModule="NotasCoreData" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wak-3y-kks">
-                                <rect key="frame" x="76" y="474" width="241" height="21"/>
+                                <rect key="frame" x="76" y="415" width="241" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXh-kD-ba8">
-                                <rect key="frame" x="78" y="583" width="66" height="35"/>
+                                <rect key="frame" x="78" y="524" width="66" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Crear"/>
                                 <connections>
@@ -31,7 +31,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRn-6t-0AF">
-                                <rect key="frame" x="233" y="583" width="86" height="35"/>
+                                <rect key="frame" x="233" y="524" width="86" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Guardar"/>
                                 <connections>
@@ -90,7 +90,7 @@
             <objects>
                 <tableViewController title="Listado de Notas" id="0en-eu-t6y" customClass="ListaNotasController" customModule="NotasCoreData" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="s8R-na-XfT">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -123,11 +123,48 @@
             </objects>
             <point key="canvasLocation" x="924" y="713"/>
         </scene>
+        <!--Libreta View Controller-->
+        <scene sceneID="4AO-th-kVq">
+            <objects>
+                <viewController id="3c9-gA-mOG" customClass="LibretaViewController" customModule="NotasCoreData" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wTl-Nj-TNX">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUR-4M-Vqy">
+                                <rect key="frame" x="104" y="400" width="185" height="52"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Nueva Libreta"/>
+                                <connections>
+                                    <action selector="nuevaLibreta:" destination="3c9-gA-mOG" eventType="touchUpInside" id="cyG-NK-2wf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6fX-NA-lLZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qUR-4M-Vqy" firstAttribute="centerY" secondItem="wTl-Nj-TNX" secondAttribute="centerY" id="D3m-oc-qh1"/>
+                            <constraint firstItem="qUR-4M-Vqy" firstAttribute="centerX" secondItem="wTl-Nj-TNX" secondAttribute="centerX" id="MrH-6r-LqU"/>
+                            <constraint firstItem="qUR-4M-Vqy" firstAttribute="leading" secondItem="6fX-NA-lLZ" secondAttribute="leading" constant="104" id="fOy-3p-Keo"/>
+                            <constraint firstItem="qUR-4M-Vqy" firstAttribute="centerX" secondItem="wTl-Nj-TNX" secondAttribute="centerX" id="qdd-gf-bp4"/>
+                            <constraint firstItem="qUR-4M-Vqy" firstAttribute="centerY" secondItem="wTl-Nj-TNX" secondAttribute="centerY" id="x7V-vF-CYO"/>
+                            <constraint firstItem="qUR-4M-Vqy" firstAttribute="top" secondItem="6fX-NA-lLZ" secondAttribute="top" constant="341" id="xC2-1M-quo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="jeK-J8-wrz" kind="show" identifier="start" id="lNq-uY-J4O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gDt-HM-Hzn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1350.3816793893129" y="239.43661971830988"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="gTD-qU-uq1">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="jeK-J8-wrz" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="9ZF-Ov-asa"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e1R-kN-Acq">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

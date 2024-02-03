@@ -20,6 +20,16 @@ class ListaNotasController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         print("hola soy ListaNotasController")
+        
+        let queryLibretas = NSFetchRequest<Libreta>(entityName:"Libreta")
+        guard let miDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let miContexto = miDelegate.persistentContainer.viewContext
+        let libretas = try! miContexto.fetch(queryLibretas)
+        for libreta in libretas {
+            print(libreta.nombre as Any)
+        }
     }
 
     // MARK: - Table view data source
