@@ -23,11 +23,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        //Aquí, "picker" es el outlet que representa al "picker view"
-        //CAMBIALO por el nombre que le hayas dado
         self.libretaPicker.delegate = self.miGestorPicker
         self.libretaPicker.dataSource = self.miGestorPicker
-        //cargamos las libretas con Core Data
         self.miGestorPicker.cargarLista()
         self.libretaPicker.reloadAllComponents()
     }
@@ -45,9 +42,14 @@ class ViewController: UIViewController {
         
         let miContexto = miDelegate.persistentContainer.viewContext
         
+        let numLibreta = self.libretaPicker.selectedRow(inComponent: 0)
+        let libretaSeleccionada = self.miGestorPicker.libretas[numLibreta]
+        
         let nuevaNota = Nota(context: miContexto)
         nuevaNota.fecha = Date()
         nuevaNota.texto = textView.text
+        
+        nuevaNota.libreta = libretaSeleccionada
         
         do {
             try miContexto.save()
@@ -62,4 +64,3 @@ class ViewController: UIViewController {
         }
     }
 }
-
