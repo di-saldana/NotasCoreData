@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import CoreData
 
 class ListaNotasCDController: UITableViewController {
+    var frc : NSFetchedResultsController<Nota>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,29 +19,46 @@ class ListaNotasCDController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        let miDelegate = UIApplication.shared.delegate! as! AppDelegate
+        let miContexto = miDelegate.persistentContainer.viewContext
+
+        let consulta = NSFetchRequest<Nota>(entityName: "Nota")
+        let sortDescriptors = [NSSortDescriptor(key:"texto", ascending:false)]
+        consulta.sortDescriptors = sortDescriptors
+        self.frc = NSFetchedResultsController<Nota>(fetchRequest: consulta, managedObjectContext: miContexto, sectionNameKeyPath: nil, cacheName: "miCache")
+
+        try! self.frc.performFetch()
+        
+        if let resultados = frc.fetchedObjects {
+            print("Hay \(resultados.count) mensajes")
+            for mensaje in resultados {
+                print (mensaje.texto!)
+            }
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return self.frc.sections!.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.frc.sections![section].numberOfObjects
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "miCeldaCD", for: indexPath)
 
-        // Configure the cell...
-
+        let mensaje = self.frc.object(at: indexPath)
+        cell.textLabel?.text = mensaje.texto!
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
