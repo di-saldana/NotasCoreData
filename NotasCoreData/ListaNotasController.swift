@@ -68,7 +68,7 @@ class ListaNotasController: UITableViewController, UISearchResultsUpdating {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "miCelda", for: indexPath)
 
-        cell.textLabel?.text = self.listaNotas[indexPath.row].texto
+        cell.textLabel?.text = self.listaNotas[indexPath.row].contenido
         
         if let libreta = self.listaNotas[indexPath.row].libreta {
             cell.detailTextLabel?.text = "Libreta: \(libreta.nombre ?? "Sin nombre")"

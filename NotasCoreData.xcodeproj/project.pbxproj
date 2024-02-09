@@ -38,6 +38,7 @@
 		EF4797E52B6E8D130070FA55 /* Throttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttler.swift; sourceTree = "<group>"; };
 		EF4797E72B6E97540070FA55 /* ListaNotasCDController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaNotasCDController.swift; sourceTree = "<group>"; };
 		EF4797E92B6EA2210070FA55 /* Nota+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Nota+Custom.swift"; sourceTree = "<group>"; };
+		EF7C2F772B767189001E69B4 /* NotasCoreData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "NotasCoreData 2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -396,9 +397,10 @@
 		EF4797D12B6C1A4D0070FA55 /* NotasCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				EF7C2F772B767189001E69B4 /* NotasCoreData 2.xcdatamodel */,
 				EF4797D22B6C1A4D0070FA55 /* NotasCoreData.xcdatamodel */,
 			);
-			currentVersion = EF4797D22B6C1A4D0070FA55 /* NotasCoreData.xcdatamodel */;
+			currentVersion = EF7C2F772B767189001E69B4 /* NotasCoreData 2.xcdatamodel */;
 			path = NotasCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

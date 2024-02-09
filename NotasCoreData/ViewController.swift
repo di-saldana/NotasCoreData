@@ -47,7 +47,7 @@ class ViewController: UIViewController {
         
         let nuevaNota = Nota(context: miContexto)
         nuevaNota.fecha = Date()
-        nuevaNota.texto = textView.text
+        nuevaNota.contenido = textView.text
         
         nuevaNota.libreta = libretaSeleccionada
         
